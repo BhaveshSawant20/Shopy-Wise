@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shopy Wise - Prediction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+    <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='images/favicon.png') }}"
+>
+
+</head>
+
+
+<body class="prediction-page">
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar">
+
+    <div class="navbar-left">
+
+        <a
+            href="/"
+            aria-label="Shopy Wise Home"
+        >
+
+            <img
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="Shopy Wise Logo"
+                class="navbar-logo"
+            >
+
+        </a>
+
+    </div>
+
+
+    <div class="navbar-title">
+
+        <span>SHOPY WISE</span>
+
+    </div>
+
+
+    <div class="navbar-links">
+
+        <a href="/">Home</a>
+
+        <a href="/team">Team</a>
+
+        <a href="/details">Details</a>
+
+        <a
+            href="/prediction"
+            class="active"
+        >
+            Prediction
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     PAGE HEADER
+================================================== -->
+
+<section class="prediction-header">
+
+    <div class="prediction-header-content">
+
+        <span class="section-tag">
+            MACHINE LEARNING
+        </span>
+
+        <h1>
+            Customer Purchase Prediction
+        </h1>
+
+        <p>
+            Enter shopping-session details and let the
+            trained machine learning model estimate whether
+            the customer is likely to make a purchase.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     MAIN CONTAINER
+================================================== -->
+
+<main class="prediction-container">
+
+
+    <!-- ==================================================
+         PRESET SECTION
+    ================================================== -->
+
+    <section class="preset-section">
+
+        <div class="section-heading">
+
+            <span class="section-number">
+                01
+            </span>
+
+            <div>
+
+                <h2>
+                    Quick Input
+                </h2>
+
+                <p>
+                    Choose a sample profile or start with
+                    completely custom values.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="preset-container">
+
+
+            <!-- Typical -->
+
+            <div
+                class="preset-card"
+                onclick="applyPreset('typical', this)"
+            >
+
+                <div class="preset-icon">
+                    ◉
+                </div>
+
+                <div class="preset-content">
+
+                    <h3>
+                        Typical
+                    </h3>
+
+                    <p>
+                        Average shopping session
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- High Intent -->
+
+            <div
+                class="preset-card"
+                onclick="applyPreset('high', this)"
+            >
+
+                <div class="preset-icon">
+                    ↑
+                </div>
+
+                <div class="preset-content">
+
+                    <h3>
+                        High Intent
+                    </h3>
+
+                    <p>
+                        Strong purchase behaviour
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Casual -->
+
+            <div
+                class="preset-card"
+                onclick="applyPreset('casual', this)"
+            >
+
+                <div class="preset-icon">
+                    ○
+                </div>
+
+                <div class="preset-content">
+
+                    <h3>
+                        Casual
+                    </h3>
+
+                    <p>
+                        Low engagement session
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Custom -->
+
+            <div
+                class="preset-card custom-card"
+                onclick="applyCustom(this)"
+            >
+
+                <div class="preset-icon">
+                    ✎
+                </div>
+
+                <div class="preset-content">
+
+                    <h3>
+                        Custom
+                    </h3>
+
+                    <p>
+                        Enter your own values
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         PREDICTION FORM
+    ================================================== -->
+
+    <section class="form-section">
+
+        <div class="section-heading">
+
+            <span class="section-number">
+                02
+            </span>
+
+            <div>
+
+                <h2>
+                    Shopping Session Details
+                </h2>
+
+                <p>
+                    Provide the customer session information
+                    used by the trained model.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <form
+            action="/predict"
+            method="POST"
+            class="prediction-form"
+            id="predictionForm"
+        >
+
+
+            <!-- Hidden preset field -->
+
+            <input
+                type="hidden"
+                name="preset"
+                id="selectedPreset"
+                value=""
+            >
+
+
+
+            <!-- ==================================================
+                 MAIN INPUTS
+            ================================================== -->
+
+            <div class="form-grid">
+
+
+                <!-- Product Related -->
+
+                <div class="form-group">
+
+                    <label for="ProductRelated">
+                        Product Related Pages
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ProductRelated"
+                        name="ProductRelated"
+                        min="0"
+                        step="1"
+                        placeholder="Example: 35"
+                    >
+
+                    <span class="input-help">
+                        Number of product-related pages viewed.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Product Related Duration -->
+
+                <div class="form-group">
+
+                    <label for="ProductRelated_Duration">
+                        Product Related Duration
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ProductRelated_Duration"
+                        name="ProductRelated_Duration"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 1800"
+                    >
+
+                    <span class="input-help">
+                        Time spent on product-related pages.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Informational -->
+
+                <div class="form-group">
+
+                    <label for="Informational">
+                        Informational Pages
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Informational"
+                        name="Informational"
+                        min="0"
+                        step="1"
+                        placeholder="Example: 2"
+                    >
+
+                    <span class="input-help">
+                        Number of informational pages viewed.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Administrative -->
+
+                <div class="form-group">
+
+                    <label for="Administrative">
+                        Administrative Pages
+                    </label>
+
+                    <input
+                        type="number"
+                        id="Administrative"
+                        name="Administrative"
+                        min="0"
+                        step="1"
+                        placeholder="Example: 3"
+                    >
+
+                    <span class="input-help">
+                        Number of administrative pages viewed.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Page Values -->
+
+                <div class="form-group">
+
+                    <label for="PageValues">
+                        Page Values
+                    </label>
+
+                    <input
+                        type="number"
+                        id="PageValues"
+                        name="PageValues"
+                        min="0"
+                        step="0.01"
+                        placeholder="Example: 15"
+                    >
+
+                    <span class="input-help">
+                        Average page value associated with the session.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Bounce Rate -->
+
+                <div class="form-group">
+
+                    <label for="BounceRates">
+                        Bounce Rate
+                    </label>
+
+                    <input
+                        type="number"
+                        id="BounceRates"
+                        name="BounceRates"
+                        min="0"
+                        step="0.0001"
+                        placeholder="Example: 0.01"
+                    >
+
+                    <span class="input-help">
+                        Proportion of sessions leaving from the page.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Exit Rate -->
+
+                <div class="form-group">
+
+                    <label for="ExitRates">
+                        Exit Rate
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ExitRates"
+                        name="ExitRates"
+                        min="0"
+                        step="0.0001"
+                        placeholder="Example: 0.03"
+                    >
+
+                    <span class="input-help">
+                        Proportion of exits from viewed pages.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Weekend -->
+
+                <div class="form-group">
+
+                    <label for="Weekend">
+                        Weekend
+                    </label>
+
+                    <select
+                        id="Weekend"
+                        name="Weekend"
+                    >
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="True">
+                            Yes
+                        </option>
+
+                        <option value="False">
+                            No
+                        </option>
+
+                    </select>
+
+                    <span class="input-help">
+                        Whether the session occurred on a weekend.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Month -->
+
+                <div class="form-group">
+
+                    <label for="Month">
+                        Month
+                    </label>
+
+                    <select
+                        id="Month"
+                        name="Month"
+                    >
+
+                        <option value="">
+                            Select Month
+                        </option>
+
+                        <option value="Feb">
+                            February
+                        </option>
+
+                        <option value="Mar">
+                            March
+                        </option>
+
+                        <option value="May">
+                            May
+                        </option>
+
+                        <option value="June">
+                            June
+                        </option>
+
+                        <option value="Jul">
+                            July
+                        </option>
+
+                        <option value="Aug">
+                            August
+                        </option>
+
+                        <option value="Sep">
+                            September
+                        </option>
+
+                        <option value="Oct">
+                            October
+                        </option>
+
+                        <option value="Nov">
+                            November
+                        </option>
+
+                        <option value="Dec">
+                            December
+                        </option>
+
+                    </select>
+
+                    <span class="input-help">
+                        Month in which the browsing session occurred.
+                    </span>
+
+                </div>
+
+
+
+                <!-- Visitor Type -->
+
+                <div class="form-group">
+
+                    <label for="VisitorType">
+                        Visitor Type
+                    </label>
+
+                    <select
+                        id="VisitorType"
+                        name="VisitorType"
+                    >
+
+                        <option value="">
+                            Select Visitor Type
+                        </option>
+
+                        <option value="Returning_Visitor">
+                            Returning Visitor
+                        </option>
+
+                        <option value="New_Visitor">
+                            New Visitor
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                    <span class="input-help">
+                        Type of visitor for the shopping session.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TECHNICAL FEATURES
+            ================================================== -->
+
+            <div class="technical-info">
+
+                <div class="technical-info-header">
+
+                    <span class="technical-icon">
+                        ⚙
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Model Technical Features
+                        </h3>
+
+                        <p>
+                            The trained model uses additional technical
+                            and traffic attributes such as operating
+                            system, browser, region and traffic type.
+                            Default values are provided automatically
+                            so users can focus on the main
+                            shopping-session behaviour.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PREDICT BUTTON
+            ================================================== -->
+
+            <div class="prediction-action">
+
+                <div class="prediction-action-text">
+
+                    <span>
+                        Ready to predict?
+                    </span>
+
+                    <small>
+                        The trained Decision Tree model will process
+                        the entered session details.
+                    </small>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="predict-button"
+                >
+
+                    <span>
+                        Predict Purchase
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         RESULT SECTION
+    ================================================== -->
+
+    <section
+        class="prediction-result {% if error %}result-error{% endif %}"
+        id="predictionResult"
+    >
+
+        <div class="result-icon">
+
+            {{ result_icon if result_icon else '?' }}
+
+        </div>
+
+
+        <div class="result-content">
+
+            <span class="result-label">
+                PREDICTION RESULT
+            </span>
+
+
+            <h2>
+                {{ prediction if prediction else 'Prediction will appear here' }}
+            </h2>
+
+
+            <p>
+                {{ result_message if result_message else 'Submit the session details above to generate a prediction.' }}
+            </p>
+
+        </div>
+
+
+        <div class="result-probability">
+
+            <span>
+                Purchase Probability
+            </span>
+
+            <strong>
+                {{ probability ~ '%' if probability is not none else '--' }}
+            </strong>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-line"></div>
+
+    <div class="footer-content">
+
+        <span>
+            Shopy Wise
+        </span>
+
+        <span>
+            Customer Purchase Prediction
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+let selectedPreset = "";
+
+
+// ==================================================
+// PRESET DATA
+// ==================================================
+
+const presets = {
+
+    typical: {
+
+        ProductRelated: 20,
+
+        ProductRelated_Duration: 1000,
+
+        Informational: 1,
+
+        Administrative: 2,
+
+        PageValues: 5,
+
+        BounceRates: 0.02,
+
+        ExitRates: 0.04,
+
+        Weekend: "False",
+
+        Month: "Nov",
+
+        VisitorType: "Returning_Visitor"
+
+    },
+
+
+    high: {
+
+        ProductRelated: 50,
+
+        ProductRelated_Duration: 2500,
+
+        Informational: 3,
+
+        Administrative: 4,
+
+        PageValues: 30,
+
+        BounceRates: 0.005,
+
+        ExitRates: 0.02,
+
+        Weekend: "True",
+
+        Month: "Nov",
+
+        VisitorType: "Returning_Visitor"
+
+    },
+
+
+    casual: {
+
+        ProductRelated: 5,
+
+        ProductRelated_Duration: 200,
+
+        Informational: 0,
+
+        Administrative: 0,
+
+        PageValues: 0,
+
+        BounceRates: 0.08,
+
+        ExitRates: 0.10,
+
+        Weekend: "False",
+
+        Month: "Feb",
+
+        VisitorType: "New_Visitor"
+
+    }
+
+};
+
+
+// ==================================================
+// APPLY PRESET
+// ==================================================
+
+function applyPreset(type, selectedCard) {
+
+    const preset = presets[type];
+
+    if (!preset) {
+        return;
+    }
+
+
+    selectedPreset = type;
+
+
+    const presetInput =
+        document.getElementById("selectedPreset");
+
+
+    if (presetInput) {
+
+        presetInput.value = type;
+
+    }
+
+
+    // Fill fields
+
+    Object.keys(preset).forEach(function(field) {
+
+        const element =
+            document.getElementById(field);
+
+        if (element) {
+
+            element.value = preset[field];
+
+        }
+
+    });
+
+
+    // Remove selected state
+
+    document
+        .querySelectorAll(".preset-card")
+        .forEach(function(card) {
+
+            card.classList.remove("selected");
+
+        });
+
+
+    // Highlight selected preset
+
+    if (selectedCard) {
+
+        selectedCard.classList.add("selected");
+
+    }
+
+}
+
+
+// ==================================================
+// CUSTOM BUTTON
+// ==================================================
+
+function applyCustom(selectedCard) {
+
+    selectedPreset = "";
+
+
+    const presetInput =
+        document.getElementById("selectedPreset");
+
+
+    if (presetInput) {
+
+        presetInput.value = "";
+
+    }
+
+
+    // Fields that should be cleared
+
+    const fieldsToClear = [
+
+        "ProductRelated",
+
+        "ProductRelated_Duration",
+
+        "Informational",
+
+        "Administrative",
+
+        "PageValues",
+
+        "BounceRates",
+
+        "ExitRates",
+
+        "Weekend",
+
+        "Month",
+
+        "VisitorType"
+
+    ];
+
+
+    fieldsToClear.forEach(function(fieldId) {
+
+        const element =
+            document.getElementById(fieldId);
+
+        if (element) {
+
+            element.value = "";
+
+        }
+
+    });
+
+
+    // Remove selected state
+
+    document
+        .querySelectorAll(".preset-card")
+        .forEach(function(card) {
+
+            card.classList.remove("selected");
+
+        });
+
+
+    // Highlight Custom
+
+    if (selectedCard) {
+
+        selectedCard.classList.add("selected");
+
+    }
+
+
+    // Focus first input
+
+    const firstInput =
+        document.getElementById("ProductRelated");
+
+
+    if (firstInput) {
+
+        firstInput.focus();
+
+    }
+
+}
+
+
+// ==================================================
+// CLEAR PRESET WHEN USER MANUALLY EDITS
+// ==================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        const form =
+            document.getElementById("predictionForm");
+
+
+        if (!form) {
+            return;
+        }
+
+
+        const fields =
+            form.querySelectorAll(
+                "input:not([type='hidden']), select"
+            );
+
+
+        fields.forEach(function(field) {
+
+            field.addEventListener(
+                "input",
+                clearPresetState
+            );
+
+
+            field.addEventListener(
+                "change",
+                clearPresetState
+            );
+
+        });
+
+
+        function clearPresetState() {
+
+            selectedPreset = "";
+
+
+            const presetInput =
+                document.getElementById(
+                    "selectedPreset"
+                );
+
+
+            if (presetInput) {
+
+                presetInput.value = "";
+
+            }
+
+
+            document
+                .querySelectorAll(".preset-card")
+                .forEach(function(card) {
+
+                    card.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+        }
+
+
+        // ==================================================
+        // SCROLL TO RESULT AFTER PREDICTION
+        // ==================================================
+
+        const result =
+            document.getElementById(
+                "predictionResult"
+            );
+
+
+        const hasResult =
+            result &&
+            (
+                result.querySelector("h2").textContent.trim()
+                !== "Prediction will appear here"
+            );
+
+
+        if (hasResult) {
+
+            setTimeout(function() {
+
+                result.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+            }, 250);
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>

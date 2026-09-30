@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Details | Shopy Wise</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='images/favicon.png') }}"
+>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+    <div class="navbar-left">
+        <a href="/" aria-label="Shopy Wise Home">
+            <img
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="Shopy Wise Logo"
+                class="navbar-logo"
+            >
+        </a>
+    </div>
+
+    <div class="site-title">
+        SHOPY WISE
+    </div>
+
+    <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/team" class="nav-link">Team</a>
+        <a href="/details" class="nav-link active">Details</a>
+        <a href="/prediction" class="nav-link">Prediction</a>
+    </div>
+
+</nav>
+
+
+    <!-- ================= DETAILS PAGE ================= -->
+
+    <main class="details-page">
+
+        <!-- Header -->
+
+        <div class="details-header">
+
+            <span class="details-eyebrow">
+                PROJECT DOCUMENTATION
+            </span>
+
+            <h1>
+                About <span>SHOPY WISE</span>
+            </h1>
+
+            <p>
+                An ML-based online customer purchase prediction system
+                designed to analyze shopping session behavior and predict
+                whether a customer is likely to make a purchase.
+            </p>
+
+        </div>
+
+
+        <!-- Project Overview -->
+
+        <section class="details-section">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                Shopy Wise is a machine learning-based web application
+                developed to predict online customer purchase intention.
+                The system analyzes customer browsing and session-related
+                attributes and uses trained classification models to
+                determine whether the session is likely to result in a
+                purchase.
+            </p>
+
+            <p>
+                The project demonstrates a complete machine learning
+                workflow, starting from dataset analysis and preprocessing,
+                followed by model training and evaluation, and finally
+                integrating the selected model into a Flask-based web
+                application for real-time prediction.
+            </p>
+
+        </section>
+
+
+        <!-- How Shopy Wise Works -->
+
+        <section class="details-section">
+
+            <h2>How Shopy Wise Works</h2>
+
+            <div class="details-flow">
+
+                <div class="details-step">
+
+                    <span>Dataset</span>
+
+                    <h3>Customer Session Data</h3>
+
+                    <p>
+                        The system uses the UCI Online Shoppers
+                        Purchasing Intention dataset containing
+                        browsing and session behavior.
+                    </p>
+
+                </div>
+
+
+                <div class="details-step">
+
+                    <span>Processing</span>
+
+                    <h3>Data Preprocessing</h3>
+
+                    <p>
+                        Numerical and categorical features are
+                        processed using scaling and one-hot encoding
+                        before model training.
+                    </p>
+
+                </div>
+
+
+                <div class="details-step">
+
+                    <span>Prediction</span>
+
+                    <h3>Machine Learning</h3>
+
+                    <p>
+                        Logistic Regression, KNN and Decision Tree
+                        models are trained and evaluated using the
+                        prepared dataset.
+                    </p>
+
+                </div>
+
+
+                <div class="details-step">
+
+                    <span>Result</span>
+
+                    <h3>Purchase Prediction</h3>
+
+                    <p>
+                        The selected model predicts purchase intention
+                        and provides the predicted result along with
+                        purchase probability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technology Stack -->
+
+        <section class="details-section">
+
+            <h2>Technology Stack</h2>
+
+            <div class="tech-grid">
+
+                <div class="tech-item">
+                    <strong>Programming</strong>
+                    <span>Python</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Data Analysis</strong>
+                    <span>Pandas + NumPy</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Visualization</strong>
+                    <span>Matplotlib + Seaborn</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Machine Learning</strong>
+                    <span>Scikit-learn</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Model Storage</strong>
+                    <span>Joblib</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    <span>Flask</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    <span>HTML + CSS + JavaScript</span>
+                </div>
+
+                <div class="tech-item">
+                    <strong>Deployment</strong>
+                    <span>Railway</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dataset -->
+
+        <section class="details-section">
+
+            <h2>Dataset & Features</h2>
+
+            <p>
+                Shopy Wise uses the
+                <strong>Online Shoppers Purchasing Intention Dataset</strong>
+                provided by the UCI Machine Learning Repository.
+            </p>
+
+            <div class="dataset-grid">
+
+                <div class="dataset-card">
+                    <span>Original Records</span>
+                    <strong>12,330</strong>
+                </div>
+
+                <div class="dataset-card">
+                    <span>Attributes</span>
+                    <strong>18</strong>
+                </div>
+
+                <div class="dataset-card">
+                    <span>Input Features</span>
+                    <strong>17</strong>
+                </div>
+
+                <div class="dataset-card">
+                    <span>Target</span>
+                    <strong>Revenue</strong>
+                </div>
+
+            </div>
+
+            <p class="dataset-note">
+                After removing duplicate records during preprocessing,
+                the working dataset contains <strong>12,205 records</strong>.
+                The target variable, Revenue, represents whether the
+                shopping session resulted in a purchase.
+            </p>
+
+            <div class="feature-tags">
+
+                <span>Administrative</span>
+                <span>Administrative Duration</span>
+                <span>Informational</span>
+                <span>Informational Duration</span>
+                <span>Product Related</span>
+                <span>Product Related Duration</span>
+                <span>Bounce Rates</span>
+                <span>Exit Rates</span>
+                <span>Page Values</span>
+                <span>Special Day</span>
+                <span>Month</span>
+                <span>Operating Systems</span>
+                <span>Browser</span>
+                <span>Region</span>
+                <span>Traffic Type</span>
+                <span>Visitor Type</span>
+                <span>Weekend</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Machine Learning Models -->
+
+        <section class="details-section">
+
+            <h2>Machine Learning Models</h2>
+
+            <p>
+                Three classification algorithms were implemented and
+                evaluated using the same training and testing data.
+            </p>
+
+            <div class="model-details-grid">
+
+                <div class="model-detail-card">
+
+                    <h3>Logistic Regression</h3>
+
+                    <p>
+                        A linear classification algorithm used to estimate
+                        the probability of a binary purchase outcome.
+                    </p>
+
+                    <div class="model-score">
+                        Accuracy
+                        <strong>88.94%</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="model-detail-card">
+
+                    <h3>K-Nearest Neighbors</h3>
+
+                    <p>
+                        Classifies a customer session based on the behavior
+                        of similar observations in the training dataset.
+                    </p>
+
+                    <div class="model-score">
+                        Accuracy
+                        <strong>87.87%</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="model-detail-card">
+
+                    <h3>Decision Tree</h3>
+
+                    <p>
+                        Uses a tree-based structure of decision rules to
+                        classify whether a session is likely to generate
+                        a purchase.
+                    </p>
+
+                    <div class="model-score">
+                        F1 Score
+                        <strong>56.41%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-table-wrapper">
+
+                <table class="model-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1 Score</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Logistic Regression</td>
+                            <td>88.94%</td>
+                            <td>77.18%</td>
+                            <td>41.62%</td>
+                            <td>54.08%</td>
+                        </tr>
+
+                        <tr>
+                            <td>KNN</td>
+                            <td>87.87%</td>
+                            <td>67.92%</td>
+                            <td>42.67%</td>
+                            <td>52.41%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Decision Tree</td>
+                            <td>86.07%</td>
+                            <td>55.28%</td>
+                            <td>57.59%</td>
+                            <td>56.41%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="selected-model">
+
+                <strong>Selected Model: Decision Tree</strong>
+
+                <p>
+                    The Decision Tree was selected for deployment because
+                    it achieved the highest Recall and F1 Score among the
+                    three implemented models in this project.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Research Papers -->
+
+        <section class="details-section papers-section">
+
+            <div class="papers-heading">
+
+                <span class="details-eyebrow">
+                    RESEARCH FOUNDATION
+                </span>
+
+                <h2>IEEE Research Papers</h2>
+
+                <p>
+                    The project is supported by recent research related to
+                    online shopping purchase prediction, machine learning
+                    classification and e-commerce analytics.
+                </p>
+
+            </div>
+
+
+            <div class="paper-list">
+
+                <a
+                    href="https://doi.org/10.1109/SMARTGENCON60755.2023.10442497"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="paper-card"
+                >
+
+                    <span class="paper-number">01</span>
+
+                    <div>
+                        <h3>
+                            E-Commerce User Purchase Prediction Based on
+                            Improved Machine Learning Algorithms
+                        </h3>
+
+                        <p>
+                            IEEE SMART GENCON, 2023.
+                        </p>
+                    </div>
+
+                    <span class="paper-arrow">↗</span>
+
+                </a>
+
+
+                <a
+                    href="https://doi.org/10.1109/ICL62932.2024.10788661"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="paper-card"
+                >
+
+                    <span class="paper-number">02</span>
+
+                    <div>
+                        <h3>
+                            A Classification Technique for Online Shoppers'
+                            Purchasing Intention
+                        </h3>
+
+                        <p>
+                            IEEE International Conference, 2024.
+                        </p>
+                    </div>
+
+                    <span class="paper-arrow">↗</span>
+
+                </a>
+
+
+                <a
+                    href="https://doi.org/10.1109/ACCESS.2025.3572865"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="paper-card"
+                >
+
+                    <span class="paper-number">03</span>
+
+                    <div>
+                        <h3>
+                            Machine Learning in E-Commerce: Trends,
+                            Applications, and Future Challenges
+                        </h3>
+
+                        <p>
+                            IEEE Access, 2025.
+                        </p>
+                    </div>
+
+                    <span class="paper-arrow">↗</span>
+
+                </a>
+
+
+                <a
+                    href="https://doi.org/10.1109/CE2CT64011.2025.10941434"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="paper-card"
+                >
+
+                    <span class="paper-number">04</span>
+
+                    <div>
+                        <h3>
+                            Leveraging Machine Learning for Consumer
+                            Purchase Behaviour Analysis
+                        </h3>
+
+                        <p>
+                            IEEE Conference, 2025.
+                        </p>
+                    </div>
+
+                    <span class="paper-arrow">↗</span>
+
+                </a>
+
+
+                <a
+                    href="https://doi.org/10.1109/ICTEST64710.2025.11042327"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="paper-card"
+                >
+
+                    <span class="paper-number">05</span>
+
+                    <div>
+                        <h3>
+                            Predictive Analytics Application in E-Commerce:
+                            An Artificial Intelligence-Driven Approach
+                        </h3>
+
+                        <p>
+                            IEEE ICTEST, 2025.
+                        </p>
+                    </div>
+
+                    <span class="paper-arrow">↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Project Information -->
+
+        <section class="details-section project-info">
+
+            <h2>Project Information</h2>
+
+            <div class="project-info-grid">
+
+                <div>
+                    <span>Project</span>
+                    <strong>Shopy Wise</strong>
+                </div>
+
+                <div>
+                    <span>Domain</span>
+                    <strong>Machine Learning</strong>
+                </div>
+
+                <div>
+                    <span>Dataset</span>
+                    <strong>UCI Online Shoppers</strong>
+                </div>
+
+                <div>
+                    <span>Deployment</span>
+                    <strong>Railway</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+
+            <span>Shopy Wise</span>
+
+            <span>Customer Purchase Prediction</span>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

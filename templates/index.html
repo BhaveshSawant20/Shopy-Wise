@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopy Wise</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='images/favicon.png') }}"
+>
+</head>
+<body>
+
+    <nav class="navbar">
+
+    <div class="navbar-left">
+        <a href="/" aria-label="Shopy Wise Home">
+            <img
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="Shopy Wise Logo"
+                class="navbar-logo"
+            >
+        </a>
+    </div>
+
+    <div class="site-title">
+        SHOPY WISE
+    </div>
+
+    <div class="nav-links">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/team" class="nav-link">Team</a>
+        <a href="/details" class="nav-link">Details</a>
+        <a href="/prediction" class="nav-link">Prediction</a>
+    </div>
+
+</nav>
+
+    <!-- Home Content -->
+    <main class="home-content">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+
+            <p class="hero-tag">ML-POWERED CUSTOMER INSIGHTS</p>
+
+            <h1>
+                Predict Customer
+                <span>Purchase Intent</span>
+            </h1>
+
+            <p class="hero-description">
+                Shopy Wise uses machine learning to analyze online
+                shopping session behavior and predict whether a
+                customer is likely to make a purchase.
+            </p>
+
+            <a href="/prediction" class="predict-button">
+                Predict Customer Purchase
+            </a>
+
+        </section>
+
+        <!-- About Section -->
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <p class="section-tag">ABOUT THE PROJECT</p>
+
+                <h2>
+                    Turning Shopping Behavior into
+                    <span>Actionable Predictions</span>
+                </h2>
+
+                <p>
+                    Shopy Wise is a machine learning-based customer
+                    purchase prediction system that analyzes browsing
+                    and session-related behavior from online shoppers.
+                    The system helps predict whether a shopping session
+                    is likely to result in a purchase.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Models Section -->
+        <section class="models-section">
+
+            <div class="section-heading">
+
+                <p class="section-tag">MACHINE LEARNING</p>
+
+                <h2>Models Used</h2>
+
+                <p>
+                    Shopy Wise evaluates multiple classification
+                    algorithms and compares their performance using
+                    standard evaluation metrics.
+                </p>
+
+            </div>
+
+            <div class="model-grid">
+
+                <div class="model-card">
+
+                    <div class="model-number">01</div>
+
+                    <h3>Logistic Regression</h3>
+
+                    <p>
+                        A classification algorithm used to estimate
+                        the probability of a customer making a purchase.
+                    </p>
+
+                    <div class="model-score">
+                        Accuracy: 88.94%
+                    </div>
+
+                </div>
+
+                <div class="model-card">
+
+                    <div class="model-number">02</div>
+
+                    <h3>K-Nearest Neighbors</h3>
+
+                    <p>
+                        Predicts customer purchase behavior by comparing
+                        a session with similar observations in the dataset.
+                    </p>
+
+                    <div class="model-score">
+                        Accuracy: 87.87%
+                    </div>
+
+                </div>
+
+                <div class="model-card">
+
+                    <div class="model-number">03</div>
+
+                    <h3>Decision Tree</h3>
+
+                    <p>
+                        Uses a tree-based decision structure to classify
+                        shopping sessions into purchase or no-purchase.
+                    </p>
+
+                    <div class="model-score">
+                        F1 Score: 56.41%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Workflow Section -->
+        <section class="workflow-section">
+
+            <div class="section-heading">
+
+                <p class="section-tag">WORKFLOW</p>
+
+                <h2>How Shopy Wise Works</h2>
+
+            </div>
+
+            <div class="workflow-grid">
+
+                <div class="workflow-card">
+
+                    <span>01</span>
+
+                    <h3>Session Data</h3>
+
+                    <p>
+                        Shopping session attributes are collected
+                        from the customer interaction data.
+                    </p>
+
+                </div>
+
+                <div class="workflow-card">
+
+                    <span>02</span>
+
+                    <h3>Preprocessing</h3>
+
+                    <p>
+                        Numerical and categorical features are
+                        transformed before model prediction.
+                    </p>
+
+                </div>
+
+                <div class="workflow-card">
+
+                    <span>03</span>
+
+                    <h3>ML Prediction</h3>
+
+                    <p>
+                        The trained machine learning model analyzes
+                        the processed session data.
+                    </p>
+
+                </div>
+
+                <div class="workflow-card">
+
+                    <span>04</span>
+
+                    <h3>Result</h3>
+
+                    <p>
+                        Shopy Wise displays the predicted purchase
+                        outcome and probability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div class="footer-line"></div>
+
+            <div class="footer-content">
+                <span>Shopy Wise</span>
+                <span>Customer Purchase Prediction</span>
+            </div>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
