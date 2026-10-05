@@ -1,163 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team | Shopy Wise</title>
+    <title>The Man Behind Shopy Wise | Shopy Wise</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link
-    rel="icon"
-    type="image/png"
-    href="{{ url_for('static', filename='images/favicon.png') }}"
->
+        rel="icon"
+        type="image/png"
+        href="{{ url_for('static', filename='images/favicon.png') }}"
+    >
 </head>
+
 <body>
 
-   <nav class="navbar">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="/" aria-label="Shopy Wise Home">
+                <img
+                    src="{{ url_for('static', filename='images/logo.png') }}"
+                    alt="Shopy Wise Logo"
+                    class="navbar-logo"
+                >
+            </a>
+        </div>
 
-    <div class="navbar-left">
-        <a href="/" aria-label="Shopy Wise Home">
-            <img
-                src="{{ url_for('static', filename='images/logo.png') }}"
-                alt="Shopy Wise Logo"
-                class="navbar-logo"
-            >
-        </a>
-    </div>
+        <div class="site-title">
+            SHOPY WISE
+        </div>
 
-    <div class="site-title">
-        SHOPY WISE
-    </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/team" class="nav-link active">Team</a>
+            <a href="/details" class="nav-link">Details</a>
+            <a href="/prediction" class="nav-link">Prediction</a>
+        </div>
+    </nav>
 
-    <div class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/team" class="nav-link active">Team</a>
-        <a href="/details" class="nav-link">Details</a>
-        <a href="/prediction" class="nav-link">Prediction</a>
-    </div>
-
-</nav>
-
-    <!-- Team Section -->
+    <!-- Individual Project / Developer Section -->
     <main class="team-page">
 
         <section class="team-header">
-
-            <span class="section-tag">OUR TEAM</span>
+            <span class="section-tag">THE DEVELOPER</span>
 
             <h1>
-                Meet the Team Behind
+                The Man Behind
                 <span>Shopy Wise</span>
             </h1>
 
             <p>
-                A collaborative team working together to build an
-                ML-based customer purchase prediction system.
+                Shopy Wise is an individual project developed and managed
+                entirely by Bhavesh Sawant, from data analysis and machine
+                learning to web application development and deployment.
             </p>
-
         </section>
 
         <section class="team-grid">
 
-            <!-- Swayam -->
-            <div class="team-card">
-
-                <a
-                    href="https://www.linkedin.com/in/swayam-d-sawant-048b14310/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="team-photo-link"
-                >
-                    <img
-                        src="{{ url_for('static', filename='images/swayam.png') }}"
-                        alt="Swayam Sawant"
-                        class="team-photo"
-                    >
-                </a>
-
-                <div class="team-info">
-
-                    <h2>Swayam Sawant</h2>
-
-                    <p class="team-role">
-                        Frontend Developer
-                    </p>
-
-                    <span class="team-id">
-                        IEN 12327004
-                    </span>
-
-                    <p class="team-description">
-                        Responsible for frontend development, user interface
-                        design and creating the interactive Shopy Wise
-                        web experience.
-                    </p>
-
-                    <a
-                        href="https://www.linkedin.com/in/swayam-d-sawant-048b14310/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="linkedin-link"
-                        aria-label="Swayam Sawant LinkedIn Profile"
-                    >
-                        <span class="linkedin-icon">in</span>
-                        <span>LinkedIn</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- Shubham -->
-            <div class="team-card">
-
-                <a
-                    href="https://www.linkedin.com/in/shubhamsawant9900/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="team-photo-link"
-                >
-                    <img
-                        src="{{ url_for('static', filename='images/shubham.png') }}"
-                        alt="Shubham Sawant"
-                        class="team-photo"
-                    >
-                </a>
-
-                <div class="team-info">
-
-                    <h2>Shubham Sawant</h2>
-
-                    <p class="team-role">
-                        Backend Developer
-                    </p>
-
-                    <span class="team-id">
-                        IEN 12247049
-                    </span>
-
-                    <p class="team-description">
-                        Responsible for backend development, Flask
-                        integration, prediction handling and server-side
-                        functionality.
-                    </p>
-
-                    <a
-                        href="https://www.linkedin.com/in/shubhamsawant9900/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="linkedin-link"
-                        aria-label="Shubham Sawant LinkedIn Profile"
-                    >
-                        <span class="linkedin-icon">in</span>
-                        <span>LinkedIn</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- Bhavesh -->
+            <!-- Bhavesh Sawant -->
             <div class="team-card">
 
                 <a
@@ -174,11 +75,10 @@
                 </a>
 
                 <div class="team-info">
-
                     <h2>Bhavesh Sawant</h2>
 
                     <p class="team-role">
-                        Data Analyst &amp; Project Lead
+                        Data Analyst, ML Developer &amp; Project Lead
                     </p>
 
                     <span class="team-id">
@@ -186,9 +86,10 @@
                     </span>
 
                     <p class="team-description">
-                        Responsible for data analysis, machine learning
-                        workflow, model evaluation and overall project
-                        coordination.
+                        Responsible for the complete development of Shopy Wise,
+                        including data analysis, preprocessing, machine learning
+                        model development and evaluation, Flask backend integration,
+                        frontend development, deployment and overall project coordination.
                     </p>
 
                     <a
@@ -201,7 +102,6 @@
                         <span class="linkedin-icon">in</span>
                         <span>LinkedIn</span>
                     </a>
-
                 </div>
 
             </div>
@@ -212,13 +112,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-
         <div class="footer-content">
             <span>Shopy Wise</span>
             <span>Customer Purchase Prediction</span>
         </div>
-
     </footer>
 
 </body>
+
 </html>

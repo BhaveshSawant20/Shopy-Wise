@@ -626,7 +626,9 @@ body {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(0, 520px);
+
+    justify-content: center;
 
     gap: 25px;
 }
@@ -666,6 +668,10 @@ body {
 
     box-shadow:
         0 20px 50px rgba(0, 100, 255, 0.20);
+}
+
+.team-grid .team-card {
+    width: 100%;
 }
 
 
@@ -2097,9 +2103,10 @@ body {
     }
 
     .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: minmax(0, 520px);
 
         max-width: 750px;
+        justify-content: center;
     }
 
 }
@@ -2128,9 +2135,10 @@ body {
     }
 
     .team-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 520px);
 
-        max-width: 500px;
+        max-width: 520px;
+        justify-content: center;
     }
 
 
