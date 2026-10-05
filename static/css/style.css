@@ -5017,3 +5017,60 @@ body {
         height: 90px !important;
     }
 }
+
+/* =========================================================
+   FINAL PREDICTION FOOTER ALIGNMENT
+   Match the Home page footer exactly
+   ========================================================= */
+
+.prediction-page .footer {
+    width: 94vw !important;
+    max-width: none !important;
+
+    margin-top: 0 !important;
+    margin-left: calc((100% - 94vw) / 2) !important;
+    margin-right: 0 !important;
+
+    padding: 22px 0 25px !important;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.prediction-page .footer-line {
+    display: none !important;
+}
+
+.prediction-page .footer-content {
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 20px;
+
+    color: rgba(255, 255, 255, 0.55) !important;
+
+    font-size: 13px !important;
+
+    opacity: 1 !important;
+}
+
+@media (max-width: 600px) {
+
+    .prediction-page .footer {
+        width: 92vw !important;
+        margin-left: calc((100% - 92vw) / 2) !important;
+    }
+
+    .prediction-page .footer-content {
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+}
